@@ -179,6 +179,33 @@ h3 {
   gap: 12px;
 }
 
+.card-eyebrow {
+  margin-bottom: 8px;
+  color: #8eafff;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.career-heading {
+  font-size: 1.55rem !important;
+  margin-bottom: 10px !important;
+}
+
+.career-focus {
+  color: #d8e1ef;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 20px;
+}
+
+.card-divider {
+  height: 1px;
+  background: rgba(255, 255, 255, 0.12);
+  margin: 4px 0 22px;
+}
+
 .button {
   min-height: 48px;
   display: inline-flex;
