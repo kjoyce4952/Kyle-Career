@@ -38,7 +38,7 @@ a {
 }
 
 .container {
-  width: min(calc(100% - 40px), var(--max));
+  width: min(calc(100% - 30px), var(--max));
   margin: 0 auto;
 }
 
@@ -107,7 +107,7 @@ a {
 }
 
 .hero {
-  padding: 96px 0 72px;
+  padding: 72px 0 72px;
   overflow: hidden;
   background:
     radial-gradient(circle at 85% 15%, rgba(15, 98, 254, 0.14), transparent 27%),
