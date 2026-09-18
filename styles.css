@@ -1,3 +1,7 @@
+/* =========================================================
+   GLOBAL DESIGN VARIABLES
+   Site-wide colors, shadows, corner radius, and max width.
+   ========================================================= */
 :root {
   --bg: #f4f7fb;
   --surface: #ffffff;
@@ -12,14 +16,17 @@
   --max: 1160px;
 }
 
+/* GLOBAL BOX SIZING - keeps padding/borders inside element size */
 * {
   box-sizing: border-box;
 }
 
+/* PAGE SCROLLING - smooth movement when nav links jump to sections */
 html {
   scroll-behavior: smooth;
 }
 
+/* ENTIRE PAGE - default font, background, text color, and line height */
 body {
   margin: 0;
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -28,20 +35,31 @@ body {
   line-height: 1.6;
 }
 
+/* ALL LINKS - inherit surrounding text color unless overridden later */
 a {
   color: inherit;
 }
 
+/* BUTTON/LINK TAP BEHAVIOR - removes mobile tap highlight */
 button,
+/* ALL LINKS - inherit surrounding text color unless overridden later */
 a {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* =========================================================
+   MAIN CONTENT WIDTH / SIDE MARGINS
+   `30px` controls minimum combined side spacing.
+   `--max` controls the widest the content can become.
+   ========================================================= */
 .container {
   width: min(calc(100% - 30px), var(--max));
   margin: 0 auto;
 }
 
+/* =========================================================
+   TOP STICKY NAVIGATION BAR
+   ========================================================= */
 .site-header {
   position: sticky;
   top: 0;
@@ -51,6 +69,7 @@ a {
   border-bottom: 1px solid rgba(220, 228, 237, 0.9);
 }
 
+/* NAV CONTENT - positions brand left and nav links right */
 .nav-wrap {
   min-height: 72px;
   display: flex;
@@ -59,6 +78,7 @@ a {
   gap: 24px;
 }
 
+/* KJ / KYLE JOYCE BRAND LINK */
 .brand {
   display: inline-flex;
   align-items: center;
@@ -68,6 +88,7 @@ a {
   letter-spacing: -0.02em;
 }
 
+/* BLUE KJ LOGO BOX */
 .brand-mark {
   width: 40px;
   height: 40px;
@@ -79,12 +100,14 @@ a {
   box-shadow: 0 8px 20px rgba(15, 98, 254, 0.22);
 }
 
+/* DESKTOP NAVIGATION LINKS CONTAINER */
 .site-nav {
   display: flex;
   align-items: center;
   gap: 26px;
 }
 
+/* INDIVIDUAL NAVIGATION LINK TEXT */
 .site-nav a {
   text-decoration: none;
   font-size: 0.95rem;
@@ -92,10 +115,12 @@ a {
   font-weight: 650;
 }
 
+/* NAVIGATION LINK HOVER COLOR */
 .site-nav a:hover {
   color: var(--accent);
 }
 
+/* MOBILE MENU BUTTON - hidden on desktop */
 .menu-button {
   display: none;
   border: 1px solid var(--line);
@@ -106,6 +131,11 @@ a {
   font-weight: 700;
 }
 
+/* =========================================================
+   HERO / FIRST SCREEN
+   LEFT: category label, headline, intro, buttons, quick facts
+   RIGHT: dark Career Opportunities / What I Bring card
+   ========================================================= */
 .hero {
   min-height: calc(100vh - 72px);
   padding: 36px 0 24px;
@@ -115,6 +145,9 @@ a {
     radial-gradient(circle at 15% 0%, rgba(68, 140, 255, 0.10), transparent 32%);
 }
 
+/* HERO TWO-COLUMN LAYOUT
+   Left column = introduction
+   Right column = dark career card */
 .hero-grid {
   display: grid;
   grid-template-columns: minmax(0, 1.5fr) minmax(360px, 0.85fr);
@@ -122,6 +155,8 @@ a {
   align-items: center;
 }
 
+/* SMALL BLUE SECTION LABEL
+   Example: CHEMICAL ENGINEERING • BIOPROCESS • AUTOMATION • SOFTWARE */
 .eyebrow {
   margin: 0 0 14px;
   color: var(--accent);
@@ -131,6 +166,7 @@ a {
   font-size: 0.77rem;
 }
 
+/* DEFAULT TOP MARGINS FOR HEADINGS/PARAGRAPHS */
 h1,
 h2,
 h3,
@@ -138,6 +174,8 @@ p {
   margin-top: 0;
 }
 
+/* MAIN HERO HEADLINE
+   "Engineering across science, process, and technology." */
 h1 {
   max-width: 900px;
   margin-bottom: 20px;
@@ -146,6 +184,7 @@ h1 {
   letter-spacing: -0.055em;
 }
 
+/* LARGE SECTION HEADINGS */
 h2 {
   margin-bottom: 20px;
   font-size: clamp(2rem, 3.6vw, 3.5rem);
@@ -153,6 +192,7 @@ h2 {
   letter-spacing: -0.04em;
 }
 
+/* CARD / SUBSECTION HEADINGS */
 h3 {
   margin-bottom: 12px;
   font-size: 1.32rem;
@@ -160,6 +200,7 @@ h3 {
   letter-spacing: -0.02em;
 }
 
+/* SHARED MUTED PARAGRAPH TEXT STYLE */
 .hero-copy,
 .section-copy,
 .section-title-row > p,
@@ -168,19 +209,23 @@ h3 {
   font-size: 1.1rem;
 }
 
+/* HERO INTRO PARAGRAPH BELOW THE MAIN HEADLINE */
 .hero-copy {
   max-width: 800px;
   margin-bottom: 24px;
   line-height: 1.55;
 }
 
+/* BUTTON ROWS - hero buttons and contact buttons */
 .hero-actions,
+/* CONTACT BUTTON ALIGNMENT */
 .contact-actions {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
 }
 
+/* DARK HERO CARD: "CAREER OPPORTUNITIES" LABEL */
 .card-eyebrow {
   margin-bottom: 8px;
   color: #8eafff;
@@ -190,11 +235,13 @@ h3 {
   text-transform: uppercase;
 }
 
+/* DARK HERO CARD: "What I'm looking for" */
 .career-heading {
   font-size: 1.55rem !important;
   margin-bottom: 10px !important;
 }
 
+/* DARK HERO CARD: career-interest description paragraph */
 .career-focus {
   color: #d8e1ef;
   font-size: 0.95rem;
@@ -202,12 +249,16 @@ h3 {
   margin-bottom: 18px;
 }
 
+/* DARK HERO CARD: divider between career focus and What I Bring */
 .card-divider {
   height: 1px;
   background: rgba(255, 255, 255, 0.12);
   margin: 4px 0 20px;
 }
 
+/* =========================================================
+   ALL BUTTONS - base size, padding, radius, font, hover behavior
+   ========================================================= */
 .button {
   min-height: 44px;
   display: inline-flex;
@@ -223,35 +274,45 @@ h3 {
   transition: 160ms ease;
 }
 
+/* BUTTON HOVER MOVEMENT */
 .button:hover {
   transform: translateY(-1px);
 }
 
+/* PRIMARY BLUE BUTTON - View Resume / Email Me */
 .button.primary {
   background: var(--accent);
   color: white;
   box-shadow: 0 10px 24px rgba(15, 98, 254, 0.22);
 }
 
+/* PRIMARY BUTTON HOVER COLOR */
 .button.primary:hover {
   background: var(--accent-dark);
 }
 
+/* SECONDARY WHITE BUTTON - See My Work / LinkedIn */
 .button.secondary {
   background: var(--surface);
   border-color: var(--line);
 }
 
+/* SECONDARY/GHOST BUTTON HOVER BORDER */
 .button.secondary:hover,
 .button.ghost:hover {
   border-color: #b9c5d4;
 }
 
+/* OUTLINE BUTTON - Copy Email */
 .button.ghost {
   background: transparent;
   border-color: var(--line);
 }
 
+/* =========================================================
+   HERO BOTTOM FACTS ROW
+   WPI | Life Sciences | Automation
+   ========================================================= */
 .quick-facts {
   margin-top: 30px;
   display: grid;
@@ -259,43 +320,55 @@ h3 {
   gap: 18px;
 }
 
+/* EACH QUICK-FACT COLUMN + top divider line */
 .quick-facts div {
   padding-top: 14px;
   border-top: 1px solid var(--line);
 }
 
+/* QUICK-FACT TITLE AND DESCRIPTION DISPLAY */
 .quick-facts strong,
+/* QUICK-FACT DESCRIPTION TEXT */
 .quick-facts span {
   display: block;
 }
 
+/* QUICK-FACT DESCRIPTION TEXT */
 .quick-facts span {
   margin-top: 5px;
   color: var(--muted);
   font-size: 0.9rem;
 }
 
-/*Hero Card is the black box containing future job outlooks*/
+/* =========================================================
+   DARK HERO CARD / RIGHT-SIDE BLACK BOX
+   Contains Career Opportunities, What I'm looking for,
+   What I bring, and Start a conversation.
+   ========================================================= */
 .hero-card { 
   background: linear-gradient(180deg, #17243a, #0f1a2d);
   color: white;
   border-radius: 30px;
-  padding: 30px, 34px, 28px;
+  /* Top 30px | Left/Right 34px | Bottom 28px */
+  padding: 30px 34px 28px;
   box-shadow: 0 30px 70px rgba(24, 40, 66, 0.22);
   margin-top: 54px;
 }
 
+/* DARK HERO CARD HEADINGS - mainly "What I bring" */
 .hero-card h2 {
   font-size: 1.75rem;
   margin-bottom: 18px;
 }
 
+/* DARK HERO CARD: What I Bring list container */
 .check-list {
   padding: 0;
   margin: 0 0 20px;
   list-style: none;
 }
 
+/* DARK HERO CARD: each What I Bring list item */
 .check-list li {
   padding: 10px 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -304,22 +377,29 @@ h3 {
   line-height: 1.45;
 }
 
+/* "START A CONVERSATION →" LINK */
 .text-link {
   color: white;
   font-weight: 800;
   text-decoration: none;
 }
 
+/* =========================================================
+   GENERAL PAGE SECTION SPACING
+   Controls top/bottom whitespace below the hero.
+   ========================================================= */
 .section {
   padding: 92px 0;
 }
 
+/* ALTERNATING LIGHT-GRAY SECTION BACKGROUND */
 .section.alt {
   background: var(--surface-soft);
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
 }
 
+/* ABOUT SECTION TWO-COLUMN LAYOUT */
 .split-heading {
   display: grid;
   grid-template-columns: 0.95fr 1.05fr;
@@ -327,16 +407,21 @@ h3 {
   align-items: start;
 }
 
+/* LAST ABOUT/SECTION PARAGRAPH - removes extra bottom margin */
 .section-copy p:last-child {
   margin-bottom: 0;
 }
 
+/* =========================================================
+   EXPERIENCE SECTION - YMC / Moderna cards
+   ========================================================= */
 .timeline {
   display: grid;
   gap: 18px;
   margin-top: 34px;
 }
 
+/* INDIVIDUAL EXPERIENCE CARD */
 .timeline-card {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -345,6 +430,7 @@ h3 {
   box-shadow: 0 8px 28px rgba(31, 49, 78, 0.06);
 }
 
+/* EXPERIENCE CARD DATE + COMPANY ROW */
 .timeline-meta {
   display: flex;
   justify-content: space-between;
@@ -355,16 +441,19 @@ h3 {
   font-size: 0.88rem;
 }
 
+/* EXPERIENCE CARD BODY TEXT */
 .timeline-card p,
 .timeline-card li {
   color: var(--muted);
 }
 
+/* EXPERIENCE CARD BULLET LIST */
 .timeline-card ul {
   margin-bottom: 0;
   padding-left: 22px;
 }
 
+/* PROJECTS SECTION HEADER ROW */
 .section-title-row {
   display: grid;
   grid-template-columns: 1.15fr 0.85fr;
@@ -373,12 +462,14 @@ h3 {
   margin-bottom: 32px;
 }
 
+/* PROJECT GRID - two cards per row on desktop */
 .project-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 18px;
 }
 
+/* INDIVIDUAL PROJECT CARD */
 .project-card {
   min-height: 310px;
   display: flex;
@@ -390,11 +481,13 @@ h3 {
   box-shadow: 0 8px 28px rgba(31, 49, 78, 0.06);
 }
 
+/* FEATURED PROJECT CARD - subtle blue highlight */
 .project-card.featured {
   background: linear-gradient(145deg, #eef5ff, #ffffff 65%);
   border-color: #cfe0ff;
 }
 
+/* PROJECT CATEGORY PILL */
 .project-tag {
   width: fit-content;
   margin-bottom: 22px;
@@ -408,25 +501,31 @@ h3 {
   letter-spacing: 0.08em;
 }
 
+/* PROJECT DESCRIPTION TEXT */
 .project-card p {
   color: var(--muted);
 }
 
+/* PROJECT CARD BOTTOM DETAILS: Built With / Focus / Tools */
 .project-details {
   margin-top: auto;
   padding-top: 24px;
   border-top: 1px solid var(--line);
 }
 
+/* SPACING BETWEEN PROJECT DETAIL ITEMS */
 .project-details div + div {
   margin-top: 14px;
 }
 
+/* PROJECT DETAIL LABEL + VALUE DISPLAY */
 .project-details span,
+/* PROJECT DETAIL VALUE */
 .project-details strong {
   display: block;
 }
 
+/* PROJECT DETAIL LABEL, e.g. BUILT WITH */
 .project-details span {
   color: var(--muted);
   font-size: 0.78rem;
@@ -435,11 +534,15 @@ h3 {
   font-weight: 800;
 }
 
+/* PROJECT DETAIL VALUE */
 .project-details strong {
   margin-top: 3px;
   font-size: 0.95rem;
 }
 
+/* =========================================================
+   TECHNICAL SKILLS / CAPABILITIES GRID
+   ========================================================= */
 .skill-grid {
   margin-top: 34px;
   display: grid;
@@ -447,6 +550,7 @@ h3 {
   gap: 18px;
 }
 
+/* INDIVIDUAL SKILL CATEGORY CARD */
 .skill-group {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -454,15 +558,20 @@ h3 {
   padding: 26px;
 }
 
+/* SKILL CARD TECHNOLOGY LIST */
 .skill-group p {
   margin-bottom: 0;
   color: var(--muted);
 }
 
+/* =========================================================
+   NETWORKING / CONTACT SECTION
+   ========================================================= */
 .contact-section {
   padding-top: 64px;
 }
 
+/* LARGE CONTACT BOX: text left, buttons right */
 .contact-card {
   display: grid;
   grid-template-columns: 1.3fr 0.7fr;
@@ -475,19 +584,25 @@ h3 {
   box-shadow: var(--shadow);
 }
 
+/* CONTACT SECTION LARGE HEADING */
 .contact-card h2 {
   max-width: 850px;
   font-size: clamp(2rem, 3.4vw, 3rem);
 }
 
+/* CONTACT BUTTON ALIGNMENT */
 .contact-actions {
   justify-content: flex-end;
 }
 
+/* =========================================================
+   PAGE FOOTER
+   ========================================================= */
 .site-footer {
   padding: 30px 0 44px;
 }
 
+/* FOOTER CONTENT ALIGNMENT */
 .footer-wrap {
   display: flex;
   justify-content: space-between;
@@ -496,6 +611,7 @@ h3 {
   font-size: 0.9rem;
 }
 
+/* COPY-EMAIL POPUP NOTIFICATION */
 .toast {
   position: fixed;
   right: 24px;
@@ -511,37 +627,53 @@ h3 {
   transition: 180ms ease;
 }
 
+/* VISIBLE STATE OF COPY-EMAIL POPUP */
 .toast.show {
   opacity: 1;
   transform: translateY(0);
 }
 
+/* =========================================================
+   TABLET / SMALL-LAPTOP RESPONSIVE LAYOUT - 900px and below
+   Collapses larger multi-column sections.
+   ========================================================= */
 @media (max-width: 900px) {
   .split-heading,
   .section-title-row,
+/* LARGE CONTACT BOX: text left, buttons right */
   .contact-card {
     grid-template-columns: 1fr;
   }
 
   .project-grid,
+/* =========================================================
+   TECHNICAL SKILLS / CAPABILITIES GRID
+   ========================================================= */
   .skill-grid {
     grid-template-columns: 1fr;
   }
 
+/* CONTACT BUTTON ALIGNMENT */
   .contact-actions {
     justify-content: flex-start;
   }
 
+/* CAREER INTEREST GRID - three cards per row on desktop */
   .interest-grid {
     grid-template-columns: repeat(2, 1fr);
   }
 }
 
+/* =========================================================
+   MOBILE RESPONSIVE LAYOUT - 720px wide and below
+   ========================================================= */
 @media (max-width: 720px) {
+/* MOBILE MENU BUTTON - hidden on desktop */
   .menu-button {
     display: inline-flex;
   }
 
+/* DESKTOP NAVIGATION LINKS CONTAINER */
   .site-nav {
     position: absolute;
     top: 72px;
@@ -562,27 +694,41 @@ h3 {
     display: flex;
   }
 
+/* INDIVIDUAL NAVIGATION LINK TEXT */
   .site-nav a {
     padding: 12px;
   }
 
+/* =========================================================
+   HERO BOTTOM FACTS ROW
+   WPI | Life Sciences | Automation
+   ========================================================= */
   .quick-facts {
     grid-template-columns: 1fr;
   }
 
   .timeline-meta,
+/* FOOTER CONTENT ALIGNMENT */
   .footer-wrap {
     flex-direction: column;
   }
 
+/* =========================================================
+   GENERAL PAGE SECTION SPACING
+   Controls top/bottom whitespace below the hero.
+   ========================================================= */
   .section {
     padding: 72px 0;
   }
 
+/* LARGE CONTACT BOX: text left, buttons right */
   .contact-card {
     padding: 28px;
   }
 }
+/* =========================================================
+   CAREER INTERESTS INTRO PARAGRAPH
+   ========================================================= */
 .interests-intro {
   max-width: 800px;
   color: var(--muted);
@@ -590,12 +736,14 @@ h3 {
   margin-bottom: 36px;
 }
 
+/* CAREER INTEREST GRID - three cards per row on desktop */
 .interest-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 18px;
 }
 
+/* INDIVIDUAL CAREER INTEREST CARD */
 .interest-card {
   background: var(--surface);
   border: 1px solid var(--line);
@@ -603,16 +751,20 @@ h3 {
   padding: 26px;
 }
 
+/* CAREER INTEREST CARD TITLE */
 .interest-card h3 {
   margin-bottom: 12px;
 }
 
+/* CAREER INTEREST CARD DESCRIPTION */
 .interest-card p {
   margin-bottom: 0;
   color: var(--muted);
 }
 
+/* SMALL-PHONE LAYOUT - stacks career-interest cards */
 @media (max-width: 650px) {
+/* CAREER INTEREST GRID - three cards per row on desktop */
   .interest-grid {
     grid-template-columns: 1fr;
   }
